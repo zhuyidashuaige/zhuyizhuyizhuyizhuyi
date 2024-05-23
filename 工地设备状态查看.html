@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工地设备状态查看</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffe4;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #feffee;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    h2 {
+        margin-top: 20px;
+        color: #333;
+    }
+    .status-filter {
+        margin-bottom: 20px;
+    }
+    select {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .device-list {
+        list-style: none;
+        padding: 0;
+    }
+    .device-item {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+    }
+    .device-name {
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .status {
+        float: right;
+    }
+    .status .normal {
+        color: green;
+    }
+    .status .warning {
+        color: orange;
+    }
+    .status .offline {
+        color: red;
+    }
+    .device-details {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #fffff4;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>工地设备状态查看</h1>
+    <h2>状态筛选：</h2>
+    <div class="status-filter">
+        <select id="statusFilter" onchange="filterDevices()">
+            <option value="all">全部状态</option>
+            <option value="normal">正常</option>
+            <option value="warning">异常</option>
+            <option value="offline">离线</option>
+        </select>
+    </div>
+    <ul class="device-list">
+        <li class="device-item" id="device1">
+            <span class="device-name" onclick="toggleDetails('device1')">监控摄像头</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：监控摄像头</p>
+                <p>安装位置：建筑顶部</p>
+                <p>最近更新：2024-05-07 10:30</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device2">
+            <span class="device-name" onclick="toggleDetails('device2')">温度传感器</span>
+            <span class="status warning">异常</span>
+            <div class="device-details warning-details">
+                <p>设备类型：温度传感器</p>
+                <p>安装位置：主楼一层</p>
+                <p>最近更新：2024-05-07 10:45</p>
+                <p>异常信息：温度超出正常范围</p>
+                <button class="btn btn-normal" onclick="setNormal('device2')">设为正常</button>
+            </div>
+        </li>
+        <li class="device-item" id="device3">
+            <span class="device-name" onclick="toggleDetails('device3')">烟雾报警器</span>
+            <span class="status offline">离线</span>
+            <div class="device-details offline-details">
+                <p>设备类型：烟雾报警器</p>
+                <p>安装位置：工地入口处</p>
+                <p>最近更新：2024-05-07 10:20</p>
+                <p>异常信息：无</p>
+                <button class="btn btn-online" onclick="setOnline('device3')">设为在线</button>
+            </div>
+        </li>
+        <li class="device-item" id="device4">
+            <span class="device-name" onclick="toggleDetails('device4')">扬尘监测仪</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：扬尘监测仪</p>
+                <p>安装位置：建筑工地区域</p>
+                <p>最近更新：2024-05-07 11:00</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device5">
+            <span class="device-name" onclick="toggleDetails('device5')">高度安全警报器</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：高度安全警报器</p>
+                <p>安装位置：高空作业区域</p>
+                <p>最近更新：2024-05-07 10:35</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device6">
+            <span class="device-name" onclick="toggleDetails('device6')">施工电梯</span>
+            <span class="status warning">异常</span>
+            <div class="device-details warning-details">
+                <p>设备类型：施工电梯</p>
+                <p>安装位置：建筑物外侧</p>
+                <p>最近更新：2024-05-07 10:50</p>
+                <p>异常信息：电梯故障需维修</p>
+                <button class="btn btn-normal" onclick="setNormal('device6')">设为正常</button>
+            </div>
+        </li>
+        <li class="device-item" id="device7">
+            <span class="device-name" onclick="toggleDetails('device7')">消防水带</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：消防水带</p>
+                <p>安装位置：各楼层消防栓旁</p>
+                <p>最近更新：2024-05-07 11:10</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device8">
+            <span class="device-name" onclick="toggleDetails('device8')">电力配电箱</span>
+            <span class="status offline">离线</span>
+            <div class="device-details offline-details">
+                <p>设备类型：电力配电箱</p>
+                <p>安装位置：建筑电力控制室</p>
+                <p>最近更新：2024-05-07 11:20</p>
+                <p>异常信息：无</p>
+                <button class="btn btn-online" onclick="setOnline('device8')">设为在线</button>
+            </div>
+        </li>
+        <li class="device-item" id="device9">
+            <span class="device-name" onclick="toggleDetails('device9')">安全帽检测器</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：安全帽检测器</p>
+                <p>安装位置：建筑入口</p>
+                <p>最近更新：2024-05-07 11:30</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device10">
+            <span class="device-name" onclick="toggleDetails('device10')">工地照明灯</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：工地照明灯</p>
+                <p>安装位置：建筑外墙</p>
+                <p>最近更新：2024-05-07 11:40</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device11">
+            <span class="device-name" onclick="toggleDetails('device11')">人员定位系统</span>
+            <span class="status offline">离线</span>
+            <div class="device-details offline-details">
+                <p>设备类型：人员定位系统</p>
+                <p>安装位置：建筑内部</p>
+                <p>最近更新：2024-05-07 11:50</p>
+                <p>异常信息：无</p>
+                <button class="btn btn-online" onclick="setOnline('device11')">设为在线</button>
+            </div>
+        </li>
+        <li class="device-item" id="device12">
+            <span class="device-name" onclick="toggleDetails('device12')">气体检测仪</span>
+            <span class="status warning">异常</span>
+            <div class="device-details warning-details">
+                <p>设备类型：气体检测仪</p>
+                <p>安装位置：地下停车场</p>
+                <p>最近更新：2024-05-07 12:00</p>
+                <p>异常信息：检测到有害气体</p>
+                <button class="btn btn-normal" onclick="setNormal('device12')">设为正常</button>
+            </div>
+        </li>
+        <li class="device-item" id="device13">
+            <span class="device-name" onclick="toggleDetails('device13')">安全网监测器</span>
+            <span class="status warning">异常</span>
+            <div class="device-details warning-details">
+                <p>设备类型：安全网监测器</p>
+                <p>安装位置：建筑高空区域</p>
+                <p>最近更新：2024-05-07 12:10</p>
+                <p>异常信息：安全网松动需调整</p>
+                <button class="btn btn-normal" onclick="setNormal('device13')">设为正常</button>
+            </div>
+        </li>
+        <li class="device-item" id="device14">
+            <span class="device-name" onclick="toggleDetails('device14')">塔吊远程控制系统</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：塔吊远程控制系统</p>
+                <p>安装位置：建筑顶部</p>
+                <p>最近更新：2024-05-07 12:20</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device15">
+            <span class="device-name" onclick="toggleDetails('device15')">电焊烟气排放监测器</span>
+            <span class="status normal">正常</span>
+            <div class="device-details">
+                <p>设备类型：电焊烟气排放监测器</p>
+                <p>安装位置：建筑外墙</p>
+                <p>最近更新：2024-05-07 12:30</p>
+                <p>异常信息：无</p>
+            </div>
+        </li>
+        <li class="device-item" id="device16">
+            <span class="device-name" onclick="toggleDetails('device16')">油料存储罐液位监测器</span>
+            <span class="status offline">离线</span>
+            <div class="device-details offline-details">
+                <p>设备类型：油料存储罐液位监测器</p>
+                <p>安装位置：建筑地下室</p>
+                <p>最近更新：2024-05-07 12:40</p>
+                <p>异常信息：无</p>
+                <button class="btn btn-online" onclick="setOnline('device16')">设为在线</button>
+            </div>
+        </li>
+        <!-- 添加更多设备条目 -->
+    </ul>
+    </div>
+    
+    <script>
+        function toggleDetails(deviceId) {
+            var details = document.getElementById(deviceId).getElementsByClassName('device-details')[0];
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    
+        function filterDevices() {
+            var status = document.getElementById('statusFilter').value;
+            var devices = document.getElementsByClassName('device-item');
+            for (var i = 0; i < devices.length; i++) {
+                var device = devices[i];
+                var deviceStatus = device.getElementsByClassName('status')[0].classList[1];
+                if (status === 'all' || deviceStatus === status) {
+                    device.style.display = 'block';
+                } else {
+                    device.style.display = 'none';
+                }
+            }
+        }
+    </script>
+    
+    </body>
+    </html>

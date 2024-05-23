@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance and Leave Page</title>
+    <style>
+        /* 添加一些样式以美化页面 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #time {
+            font-size: 24px;
+            color: #777;
+            text-align: center; /* 居中对齐 */
+        }
+    
+    #leaveTitle {
+            color: #87CEEB; /* 修改标题字体颜色为浅蓝色 */
+
+        .leave {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+<link rel="stylesheet" href="css/dao.css">
+
+
+
+
+
+</head>
+<body>
+
+<header>
+        <h1>考勤系统</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./时间.html">请假中心</a></li>
+            </ul>
+        </nav>
+    </header>
+
+ <!-- 显示当前时间 -->
+    <div id="time">
+        当前时间：<span id="currentTime"></span>
+    </div>
+
+ 
+    <h1 id="leaveTitle">今日考勤和请假情况</h1>
+
+    <!-- 显示考勤人员列表 -->
+    <table id="attendance">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>部门</th>
+                <th>打卡时间</th>
+            </tr>
+        </thead>
+        <tbody id="attendanceBody">
+            <!-- 这里的内容将通过JavaScript动态生成 -->
+        </tbody>
+    </table>
+
+    <!-- 显示请假人员列表 -->
+    <h2 id="leaveTitle">请假人员</h2>
+    <table id="leave">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>部门</th>
+	<th>类型</th>
+                <th>请假原因</th>
+            </tr>
+        </thead>
+        <tbody id="leaveBody">
+            <!-- 这里的内容将通过JavaScript动态生成 -->
+        </tbody>
+    </table>
+
+   
+    <script>
+        // 获取当前时间并显示
+        function displayTime() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+            var currentTimeString = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('currentTime').textContent = currentTimeString;
+        }
+
+        // 显示考勤人员列表
+        var attendanceData = [
+            { name: "张三", department: "市场部", time: "09:00:16" },
+            { name: "赵八", department: "生产部", time: "09:10:12" }, 
+            { name: "李四", department: "财务部", time: "09:15:11" },
+            { name: "王五", department: "人事部", time: "09:16:01" },
+            { name: "丁二", department: "销售部", time: "09:16:12" },
+            { name: "刘文", department: "财务部", time: "09:17:17" },
+            { name: "钱九", department: "客服部", time: "09:20:59" }, 
+            { name: "刘文", department: "财务部", time: "09:21:19       迟到" },
+            { name: "钱九", department: "客服部", time: "09:22:53       迟到" }, 
+        ]; 
+        var attendanceBody = document.getElementById('attendanceBody');
+        attendanceData.forEach(function(person) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + person.name + '</td>' +
+                            '<td>' + person.department + '</td>' +
+                            '<td>' + person.time + '</td>';
+            attendanceBody.appendChild(row);
+        });
+
+        // 显示请假人员列表
+        var leaveData = [
+            { name: "赵六", department: "研发部", kind:"病假",reason: "感冒" },
+            { name: "钱七", department: "销售部",kind:"事假", reason: "家庭原因" }
+        ]; // 你可以替换为真实的请假人员数据
+        var leaveBody = document.getElementById('leaveBody');
+        leaveData.forEach(function(person) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + person.name + '</td>' +
+                            '<td>' + person.department + '</td>' +
+                            '<td>' + person.kind + '</td>' +
+                            '<td class="leave">' + person.reason + '</td>';
+            leaveBody.appendChild(row);
+        });
+
+        // 更新时间
+        displayTime();
+        setInterval(displayTime, 1000); // 每秒更新一次时间
+    </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: FZQiangKTJW;
+  src: url("../font/FZQiangKTJW.TTF");
+  font-stretch: "normal";
+}
+
+
+
+body{
+    font-size: 20px;
+   font-family: FZQiangKTJW;
+}
+
+ol,ul{
+  list-style-type: none;
+}
+a{
+  color: #FF0036;
+  text-decoration: none;
+}
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+#top,#nav,#banner,#footer{
+  height: 100px;
+  width: 100%;
+}
+.container{
+  width: 1280px;
+  margin: 0px auto;
+}
+/*页面顶部的样式*/
+#top{
+  height: 5px;
+  background-color: #FF0036;
+}
+h2{
+  color: #FF0036;
+}
+.xiaozi1{
+  color:  #00A5B6;
+  text-align: center;
+}
+
+.img{
+  width: 150px;
+  height: 90px;
+}
+/*设置导航栏样式*/
+
+#nav{
+  height: 90px;
+  background-color: #3366cc;
+  position: fixed;
+  width: 100%; /* 设置导航栏容器的宽度为100%，使其填满整个屏幕 */
+}
+
+#nav ul {
+  list-style-type: none; /* 去除列表项的默认样式 */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* 将文本居中对齐 */
+}
+
+#nav li{
+  display: inline-block; /* 将列表项设置为内联块级元素 */
+  margin: 0px 15px;
+  line-height: 90px;
+}
+
+
+
+}
+#nav li a{
+  color: #FF0036;
+  font-size:18.5px;
+  font-family: Arial, sans-serif;
+  text-align: center; /* 将文字居中对齐 */
+}
+#nav li a:hover{
+  color:#F4AEC3;
+  }
+/*--banner--*/
+.banner{
+  position:relative;
+}
+ img{
+        width:1500px;
+        height:660px;
+      }
+    .banner{
+      width:1500px;
+      height:650px;
+      margin:0 auto;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .long{
+      width:7500px;
+      font-size:0;
+      position: absolute;
+      left:0;
+
+    }
+     @-webkit-keyframes banner
+    {
+      0%,15%{
+        margin-left:0;
+      }
+      25%,40%{
+        margin-left:-1500px;
+      }
+      50%,65%{
+        margin-left:-3000px;
+      }
+      75%,90%{
+        margin-left:-4500px;
+      }
+      100%{
+        margin-left:-6000px;
+      }
+    }
+    /*首页内容*/ 
+    .remen{
+      width: 1100px;
+      height: 600px;
+      text-align: center;
+      margin:0px auto;
+     
+      transition: all .3s;
+    }
+    .remen:hover{
+  transform:translateY(-10px);
+}
+    .reme{
+      width: 1000px;
+      height: 600px;
+      text-align: center;
+      margin:0px auto;
+     
+      transition: all .3s;
+    }
+    .remen:hover{
+  transform:translateY(-10px);
+}
+    .rexiao{
+      width: 480px;
+      height: 240px;
+      text-align: center;
+      margin:0px auto;
+       
+    }
+    .rexiao1{
+      width:200px;
+      height: 220px;
+      text-align: center;
+      margin:0px auto;
+     
+
+    }
+    .huadian{
+       width: 300px;
+      height: 400px;
+      border-radius: 10px;
+      opacity: 0.8;
+      transition: all .3s;
+      text-align: center;
+      margin:0px auto;
+     
+    }
+    .huadian:hover{
+  transform:translateY(-10px);
+}
+    table {
+    border-spacing: 30px;
+    text-align: center;
+    width: 50%;
+    margin:0px auto;
+    border:none;
+    float: center;
+
+}
+/*底部*/
+#footer{
+  height: 8px;
+  background-color: #FF0036;
+}
+.erweima{
+  width: 80px;
+  height: 80px;
+  margin-top: 6px;
+  float: right;
+}
+.zi{
+  font-color:#65AB37;
+  margin-top: 6px;
+}
+#navfooter{
+  height: 90px;
+  background-color: #F4F4F4;
+  /*position: fixed;*/
+}
+
+
+
+
+
+/* 下拉菜单按钮样式 */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 下拉菜单内容样式（默认隐藏） */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* 下拉菜单链接样式 */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 鼠标悬停时下拉菜单链接的背景色 */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* 显示下拉菜单内容 */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* 下拉菜单整体样式 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}

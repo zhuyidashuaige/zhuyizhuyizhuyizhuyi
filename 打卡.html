@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工地员工打卡</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff5d7; /* 黄白色背景 */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f1f1f1; /* 白色容器 */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .employee-box {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* 白色员工信息盒子 */
+        }
+
+        .employee-info {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .clock-in-time {
+            font-weight: bold;
+        }
+
+        .photo-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #f3ecc3; /* 金黄色照片盒子 */
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .leave-btn {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .leave-btn a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #b2dfe7; /* 橙色背景 */
+            color: #000000;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            right: 50px;
+        }
+
+        .leave-btn a:hover {
+            background-color: #b2caeed6; /* 橙色hover背景 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="leave-btn">
+            <a href="考勤/时间.html">请假管理</a>
+        </div>
+        <h1>工地员工打卡</h1>
+        <!-- 员工信息卡片 -->
+        <div class="employee-box">
+            <div class="employee-info">
+                <h3>熊大</h3>
+                <p>部门：工程部</p>
+                <p>工号：001</p>
+            </div>
+            <div class="clock-in-time">
+                打卡时间：08:00 AM&nbsp;&nbsp;
+            </div>
+            <div class="photo-box">
+                <img src="images/xx.png" alt="员工照片">
+            </div>
+        </div>
+        <div class="employee-box">
+            <div class="employee-info">
+                <h3>熊二</h3>
+                <p>部门：工程部</p>
+                <p>工号：001</p>
+            </div>
+            <div class="clock-in-time">
+                打卡时间：08:00 AM&nbsp;&nbsp;
+            </div>
+            <div class="photo-box">
+                <img src="images/xx.png" alt="员工照片">
+            </div>
+        </div>
+        <div class="employee-box">
+            <div class="employee-info">
+                <h3>光头强</h3>
+                <p>部门：工程部</p>
+                <p>工号：001</p>
+            </div>
+            <div class="clock-in-time">
+                打卡时间：08:00 AM&nbsp;&nbsp;
+            </div>
+            <div class="photo-box">
+                <img src="images/xx.png" alt="员工照片">
+            </div>
+        </div>
+        <!-- 其他员工信息卡片 -->
+    </div>
+    <div style="text-align: right; margin-top: 10px;">
+        <button>请假</button>
+    </div>
+</body>
+</html>

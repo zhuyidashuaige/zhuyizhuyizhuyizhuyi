@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" href="bitbug_favicon (5).ico">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+body { background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?1ind4w');
+  src:  url('fonts/icomoon.eot?1ind4w#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?1ind4w') format('truetype'),
+    url('fonts/icomoon.woff?1ind4w') format('woff'),
+    url('fonts/icomoon.svg?1ind4w#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+    body{
+        background-color: #f6f6dc;
+    }
+    .total{
+        width: 1200px;
+        height: 800px;
+        margin: 0 auto; 
+        font-family: 'icomoon';  
+    }
+    .head1{
+        height: 80px;
+        width: 1200px;
+        position: sticky;
+        margin-top: 20px;
+    }
+    .head1-1{
+        height: 100px;width: 100px;
+        margin-left: 30px;font-size: larger;text-align: center;line-height: 80px;
+       
+       border-radius: 100%;overflow: hidden;
+    }
+    .head1-2{
+        list-style: none;position: absolute;left: 140px;top: 0;
+        height: 80px;width: 750px;
+    }
+   
+    .head2{
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-image: url(images/bg1.png);
+    background-size: cover; /* 添加这一行 */
+    background-position: center; /* 可选，确保背景图在元素中居中 */
+    -webkit-filter: opacity(90%);
+    filter: opacity(90%);
+}
+
+
+    .head2-1{
+        height: 400px;
+        width: 250px;
+    }
+    .head2-1 li{
+        height: 50px;width: 250px;
+        background-color: rgba(0,0,0,.6);
+        line-height: 50px;
+        
+    }
+    .head2-1 li:hover{
+        background-color: rgba(255, 255, 255,.6);
+        cursor: pointer;
+    }
+    .head2-1 li:hover a{
+        color: black;
+    }
+    .head2-1 li a{
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 200;
+    }
+    .head2-1 li a span{
+        float: right;
+    }
+    .head2-2{
+        position: absolute;
+        right: 0;top: 50px;
+        height: 300px;width: 250px;
+    }
+    .head2-2-1{
+        height: 60px;width: 250px;
+        text-align: center;
+        font-size: 19px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 60px;
+        background-color: #de3030;
+        cursor: default;
+    }
+    .head2-2 span{
+        height: 50px;width: 50px;
+        float: left;margin-top: 5px;margin-left: 20px;
+        border-radius: 8px;overflow: hidden;
+    }
+    .head2-2-2{
+        height: 60px;width: 250px;
+        background-color: rgba(0,0,0,.6);
+    }
+    .head2-2 a{
+        text-decoration: none;
+        text-align: center;
+        line-height: 60px;
+        font-size: 17px;
+        color: white;
+    }
+    .head2-2-3{
+        background-color: rgba(0,0,0,.6);
+        text-align: center;
+    }
+    .head2-2 section:hover{
+        cursor: pointer;
+        background-color: rgba(255, 255, 255,.6);
+    }
+    .head2-2 section:hover a{
+        color: black;
+    }
+    .head2-3{
+        height: 15px;width: 187px;
+        position: absolute;bottom: 20px;left: 500px;
+        cursor: default;
+    }
+    .head2-3 a{
+        height: 15px;width: 15px;border-radius: 100%;
+        background-color: rgba(0,0,0);display: inline-block;
+    }
+    .head2-3 a:hover{
+        background-color: rgb(255, 255, 255,.6);
+    }
+    .head2-4 {
+        height: 60px;width: 60px;
+        position: absolute;top: 175px;left: 300px;
+        font-size: 30px;
+        text-align: center;line-height: 60px;
+        background-color: rgba(0,0,0,.6);
+        border-radius: 10px;
+    }
+    .head2-4  a{
+        color: white;
+        text-decoration: none;
+    }
+    .head2-4:hover{
+        background-color: rgba(255,255,255,.6);
+        cursor: pointer;
+    }
+    .head2-4:hover a{
+        color: black;
+    }
+
+    .head2-5 {
+        height: 60px;width: 60px;
+        position: absolute;top: 175px;right: 300px;
+        font-size: 30px;
+        text-align: center;line-height: 60px;
+        background-color: rgba(0,0,0,.6);
+        border-radius: 10px;
+    }
+    .head2-5  a{
+        color: white;
+        text-decoration: none;
+    }
+    .head2-5:hover{
+        background-color: rgba(255,255,255,.6);
+        cursor: pointer;
+    }
+    .head2-5:hover a{
+        color: black;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="total">
+        <div class="head1">
+            <div class="head1-1"><a href="#"><img src="images/logo.jpg" height="100px" width="100px"></a></div>
+            <ul class="head1-2">
+
+            </ul>
+            <div class="head1-3">
+               
+              
+            </div>
+        </div>
+        <div class="head2">
+            <ul class="head2-1">
+                <li><a style="font-weight: 500;font-size: 20px;">&nbsp;&nbsp;&nbsp;智慧工地安全监测系统</a></li>
+                <li><a href="工地设备状态查看.html">&nbsp;&nbsp;&nbsp;工地设备状态查看<span>→&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="vedio.html">&nbsp;&nbsp;&nbsp;监控实时监测<span>→&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="打卡.html">&nbsp;&nbsp;&nbsp;员工打卡<span>→&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="考勤/index.html">&nbsp;&nbsp;&nbsp;考勤中心<span>→&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;待开发<span>&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;待开发<span>&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;待开发<span>&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;待开发<span>&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;待开发<span>&nbsp;&nbsp;&nbsp;</span></a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;<span>&nbsp;&nbsp;&nbsp;</span></a></li>
+                
+            </ul>
+            <div class="head2-2">
+                <div class="head2-2-1"><span style="height: 40px;width: 40px;position: absolute;top: 2px;left: 15px;"><img src="images/下载.png" height="40px" width="40px"></span>&nbsp;&nbsp;安全待处理</div>
+                <section class="head2-2-2"><a href="#"><span><img src="images/shop1.jpg" height="50px" width="50px"></span>&nbsp;&nbsp;&nbsp;待开发</a></section>
+                <section class="head2-2-2"><a href="#"><span><img src="images/shop1.jpg" height="50px" width="50px"></span>&nbsp;&nbsp;&nbsp;待开发</a></section>
+                <section class="head2-2-2"><a href="#"><span><img src="images/shop2.jpg" height="50px" width="50px"></span>&nbsp;&nbsp;&nbsp;待开发</a></section>
+                <section class="head2-2-2"><a href="#"><span><img src="images/shop3.jpg" height="50px" width="50px"></span>&nbsp;&nbsp;&nbsp;待开发</a></section>
+                <section class="head2-2-3"><a href="#">&nbsp;查看全部&nbsp;&nbsp;</a></section>
+            </div>
+            <div class="head2-3">
+                <a href="第二小组测试1.html" style="background-color: rgb(255, 255, 255);"></a>&nbsp;&nbsp;&nbsp;
+                <a href="第二小组测试2.html"></a>&nbsp;&nbsp;&nbsp;
+                <a href="第二小组测试3.html"></a>&nbsp;&nbsp;&nbsp;
+                <a href="第二小组测试4.html"></a>&nbsp;&nbsp;&nbsp;
+                <a href="第二小组测试5.html"></a>&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

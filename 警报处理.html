@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工地安全警报处理页面</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .alert-table {
+            margin-bottom: 20px;
+        }
+        .form-section {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">工地安全警报处理页面</h1>
+        
+        <table class="table table-striped alert-table">
+            <thead>
+                <tr>
+                    <th>警报ID</th>
+                    <th>警报类型</th>
+                    <th>警报时间</th>
+                    <th>详细信息</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="alertTableBody">
+                <!-- 动态生成的警报记录 -->
+            </tbody>
+        </table>
+
+        <div class="form-section">
+            <h2>处理警报</h2>
+            <form id="alertForm">
+                <div class="form-group">
+                    <label for="alertId">警报ID</label>
+                    <input type="text" class="form-control" id="alertId" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="alertStatus">处理状态</label>
+                    <select class="form-control" id="alertStatus">
+                        <option value="未处理">未处理</option>
+                        <option value="处理中">处理中</option>
+                        <option value="已处理">已处理</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="processAlert()">提交</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 假设我们有一些警报数据
+        const alerts = [
+            { id: 1, type: '工人吸烟', time: '2024-05-07 10:30', info: '工地西休息室1-201B', status: '未处理' },
+            { id: 2, type: '有害气体', time: '2024-05-07 12:00', info: '地下停车场33A', status: '未处理' },
+            { id: 3, type: '温度超标', time: '2024-05-07 10:45', info: '主楼一层', status: '未处理' },
+            { id: 4, type: '电梯故障', time: '2024-05-07 10:50', info: '工地外围', status: '未处理' },
+            // 更多警报数据
+        ];
+
+        // 动态生成警报表格
+        function loadAlerts() {
+            const tableBody = document.getElementById('alertTableBody');
+            tableBody.innerHTML = '';
+            alerts.forEach(alert => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${alert.id}</td>
+                    <td>${alert.type}</td>
+                    <td>${alert.time}</td>
+                    <td>${alert.info}</td>
+                    <td>${alert.status}</td>
+                    <td><button class="btn btn-info" onclick="loadAlertForm(${alert.id})">处理</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 加载表单数据
+        function loadAlertForm(id) {
+            const alert = alerts.find(a => a.id === id);
+            if (alert) {
+                document.getElementById('alertId').value = alert.id;
+                document.getElementById('alertStatus').value = alert.status;
+            }
+        }
+
+        // 处理警报
+        function processAlert() {
+            const id = parseInt(document.getElementById('alertId').value);
+            const status = document.getElementById('alertStatus').value;
+            const alert = alerts.find(a => a.id === id);
+            if (alert) {
+                alert.status = status;
+                loadAlerts();
+                alert('警报已处理');
+            }
+        }
+
+        // 页面加载时初始化警报表格
+        window.onload = loadAlerts;
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简历</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(120deg, #f3f4f7, #ffffff);
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #007BFF, #00C6FF);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .section {
+            padding: 20px 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #007BFF;
+            position: relative;
+        }
+        .section h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #00C6FF;
+            display: block;
+            margin-top: 5px;
+        }
+        .content {
+            line-height: 1.8;
+        }
+        .content ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .project-gallery a {
+            display: block;
+            width: 200px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .project-gallery img:hover {
+            transform: scale(1.05);
+        }
+        .contact {
+            background: #f7f9fc;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        .contact p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .contact p span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .certificate-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .certificate-container img {
+            width: 700px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>朱毅</h1>
+            <p>编程教育 | 人工智能开发 | 算法编程</p>
+        </div>
+        <div class="section">
+            <h2>个人简介</h2>
+            <div class="content">
+                <p>第十二届中国软件杯国家二等奖获得者，具备丰富的项目经验，专注于人工智能开发和算法编程。热爱教育行业，善于用通俗易懂的方式传授编程知识，致力于激发孩子的编程兴趣与潜能。</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>工作经验</h2>
+            <div class="content">
+                <ul>
+                    <li>参与多个AI开发项目，包括计算机视觉、自然语言处理、智能推荐等方向。</li>
+                    <li>在少儿编程教育领域拥有两个月的授课经验，设计生动的教学课程并成功激发学生学习兴趣。</li>
+                    <li style="font-weight: 500;font-size: 24px;">以下是我的一些经典的项目展示视频</li>
+                </ul>
+                <div class="project-gallery">
+                    <a href="https://www.bilibili.com/video/BV1t14y197xW/" target="_blank">
+                        <img src="软件杯.png" alt="中国软件杯项目视频">
+                    </a>
+                    <a href="https://www.bilibili.com/video/BV1P734eiEpJ/" target="_blank">
+                        <img src="游戏推荐.png" alt="游戏推荐项目视频">
+                    </a>
+                    <a href="https://www.bilibili.com/video/BV1uytTeNEft/" target="_blank">
+                        <img src="AI问答.png" alt="AI问答项目视频">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>教育背景</h2>
+            <div class="content">
+                <p>厦门理工学院 - 数据科学与大数据专业 - 本科</p>
+                <p>原江西生源，以高考564分考入厦门理工学院计算机与信息工程学院，对编程有及其浓烈的兴趣，从高考刚考完一直持续学习到现在。</p>
+                <p>将于22号完成25考研。</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>荣誉与证书</h2>
+            <div class="content">
+                <p>• 第十二届中国软件杯国家二等奖</p>
+                <p>• 多项编程竞赛获奖证书</p>
+                <p>• 英语六级545</p>
+                <p>• 厦门同致公司，校企合作项目负责人</p>
+                <p>• 省级大学生创新创业项目</p>
+                <div class="certificate-container">
+                    <img src="荣誉证书.jpg" alt="荣誉证书">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>技能特长</h2>
+            <div class="content">
+                <ul>
+                    <li>熟练掌握Python、C++、Java等编程语言</li>
+                    <li>精通算法设计与优化</li>
+                    <li>熟悉机器学习框架如PyTorch、TensorFlow</li>
+                </ul>
+            </div>
+        </div>
+        <div class="contact">
+            <p>电话: <span>19914721773</span> | 邮箱: <span>zxhzy19792003@gmail.com</span></p>
+        </div>
+    </div>
+</body>
+</html>

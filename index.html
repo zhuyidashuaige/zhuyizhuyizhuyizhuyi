@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Selamat Hari Kemerdekaan | 祝你印尼独立日快乐</title>
+    <meta name="description" content="Kepada kekasihku · Merah dan putih saling mengiringi, cinta abadi">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- 背景烟花画布 -->
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+    <!-- 开幕式 -->
+    <section id="opening" aria-label="开幕式">
+        <div class="opening-inner">
+            <div class="flag" aria-hidden="true"></div>
+            <h1 class="title-cn">Selamat Hari Kemerdekaan Indonesia</h1>
+            <h2 class="title-id">祝你印尼独立日快乐</h2>
+            <p class="subtitle">Kepada kekasihku · Merah dan putih saling mengiringi, cinta abadi</p>
+            <button id="enterBtn" class="btn">Mulailah momen romantis</button>
+        </div>
+
+        <!-- 开幕式飘心 -->
+        <div class="floating-hearts" aria-hidden="true">
+            <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+            <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+        </div>
+    </section>
+
+    <!-- 主内容 -->
+    <main class="hero" aria-label="主内容">
+        <div class="hero-inner">
+            <h1 class="hero-title">Merah Putih & Love</h1>
+            <p class="hero-subtitle">
+                Pada hari istimewa ini, semoga lampu merah dan putih menerangi senyum Anda;<br />
+                Semoga setiap kali kembang api bermekaran, aku turut mengirimkan cintaku kepadamu atas nama diriku sendiri.
+            </p>
+            <p class="hero-note">Selamat merayakan, sayang. Aku selalu di sisimu. ❤️</p>
+        </div>
+    </main>
+
+    <!-- 游戏邀请弹窗 -->
+    <div id="gameInviteModal" class="modal">
+        <div class="modal-content">
+            <h2 class="invite-title">🚣‍♀️ Permainan Perahu 🚣‍♂️</h2>
+            <p class="invite-text">Bisakah aku mengajakmu untuk lomba dayung?</p>
+            <p class="invite-subtitle">Jika kamu mengalahkanku, kamu akan mendapat sedikit kejutan!</p>
+            <div class="invite-buttons">
+                <button id="acceptGame" class="btn btn-accept">Ya, ayo!</button>
+                <button id="declineGame" class="btn btn-decline">Tidak, nanti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 划船游戏 -->
+    <div id="boatGame" class="game-container">
+        <div class="game-header">
+            <h2>🏁 Lomba Dayung Adeekk! 🏁</h2>
+            <p>Klik layar secepat mungkin untuk mendayung!</p>
+        </div>
+        
+        <div class="race-track river">
+            <!-- 新：动态水面 Canvas -->
+            <canvas id="waterCanvas" class="water-canvas" aria-hidden="true"></canvas>
+            <!-- 航线（两条赛道） -->
+            <div class="lane" id="myTrack">
+                <div class="track-label">Gege</div>
+                <div class="boat" id="myBoat">
+                    <div class="hull">
+                        <img src="me.png" alt="Me" class="boat-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="avatar-fallback">👨</div>
+                    </div>
+                    <div class="paddle left"></div>
+                    <div class="paddle right"></div>
+                </div>
+                <div class="finish-line">🏁</div>
+            </div>
+            
+            <div class="lane" id="herTrack">
+                <div class="track-label">Adeekk</div>
+                <div class="boat" id="herBoat">
+                    <div class="hull">
+                        <img src="her.png" alt="Her" class="boat-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="avatar-fallback">👩</div>
+                    </div>
+                    <div class="paddle left"></div>
+                    <div class="paddle right"></div>
+                </div>
+                <div class="finish-line">🏁</div>
+            </div>
+        </div>
+
+        <div class="crowd" id="crowd"></div>
+        
+        <div class="click-area" id="clickArea">
+            <div class="click-prompt">Klik di sini untuk berperahu!Click here to row!</div>
+            <div class="click-counter">Klik: <span id="clickCount">0</span></div>
+        </div>
+        
+        <button id="restartGame" class="btn btn-restart" style="display:none;">重新开始</button>
+    </div>
+
+    <!-- 游戏结果弹窗 -->
+    <div id="gameResultModal" class="modal">
+        <div class="modal-content">
+            <h2 id="resultTitle"></h2>
+            <p id="resultMessage"></p>
+            <button id="resultOK" class="btn">OK</button>
+        </div>
+    </div>
+
+    <!-- 下一页面 -->
+    <div id="nextPage" class="next-page">
+        <div class="next-content">
+            <h1>🎉 Selamat Adeekk! 🎉</h1>
+            <p>You are the best boat racer!</p>
+            <p>你是最棒的划船冠军！</p>
+            <!-- 新增：三次点击绽放非洲菊 -->
+            <p class="next-instruction">Silakan ketuk layar tiga kali: Gerbera Kuning, Putih dan Merah akan mekar secara berurutan</p>
+            <div class="garden" id="garden" aria-label="非洲菊花园"></div>
+            <!-- 可选：保留庆祝元素 -->
+            <div class="celebration">
+                <span>🏆</span><span>🎊</span><span>💕</span><span>🎊</span><span>🏆</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" aria-label="页脚">
+        <small>🇮🇩 Dengan cinta · With love · 以爱之名</small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
